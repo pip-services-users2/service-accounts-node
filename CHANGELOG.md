@@ -1,4 +1,10 @@
-<a name="1.0.0"></a> ### 1.0.0 (2022-04-05)
+<a name="1.0.1"></a> ### 1.0.1 (2022-04-29)
+
+#### Bug Fixes
+* Fixed dependencies
+
+
+<a name="1.0.0"></a> ### 1.0.0 (2022-04-28)
 
 #### Features
 * **mongodb** MongoDB data access using Mongoose framework
