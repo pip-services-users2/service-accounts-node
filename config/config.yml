@@ -50,8 +50,8 @@
 - descriptor: "pip-services:endpoint:http:default:1.0"
   connection:
     protocol: "http"
-    host: "0.0.0.0"
-    port: {{HTTP_PORT}}{{#unless HTTP_PORT}}8080{{/unless}}
+    host: {{HTTP_HOST}}{{^HTTP_HOST}}"0.0.0.0"{{/HTTP_HOST}}
+    port: {{HTTP_PORT}}{{^HTTP_PORT}}"8080"{{/HTTP_PORT}}
 
 # HTTP endpoint version 1.0
 - descriptor: "service-accounts:service:http:default:1.0"
@@ -74,7 +74,7 @@
 - descriptor: "pip-services:endpoint:grpc:default:1.0"
   connection:
     protocol: "http"
-    host: "0.0.0.0"
+    host: {{GRPC_HOST}}{{^GRPC_HOST}}"0.0.0.0"{{/GRPC_HOST}}
     port: {{GRPC_PORT}}{{#unless GRPC_PORT}}8090{{/unless}}
 
 # GRPC endpoint version 1.0
