@@ -8,7 +8,7 @@ import { References } from 'pip-services3-commons-nodex';
 import { AccountV1 } from '../../../src/data/version1/AccountV1';
 import { AccountsMemoryPersistence } from '../../../src/persistence/AccountsMemoryPersistence';
 import { AccountsController } from '../../../src/logic/AccountsController';
-import { AccountsHttpServiceV1 } from '../../../src/services/version1/AccountsHttpServiceV1';
+import { AccountsCommandableHttpServiceV1 } from '../../../src/services/version1/AccountsCommandableHttpServiceV1';
 
 let httpConfig = ConfigParams.fromTuples(
     "connection.protocol", "http",
@@ -20,8 +20,8 @@ let ACCOUNT1 = new AccountV1('1', 'account1@conceptual.vision', 'Test User 1');
 let ACCOUNT2 = new AccountV1('2', 'account2@conceptual.vision', 'Test User 2');
 let ACCOUNT3 = new AccountV1('3', 'account3@conceptual.vision', 'Test User 3');
 
-suite('AccountsHttpServiceV1', ()=> {
-    let service: AccountsHttpServiceV1;
+suite('AccountsCommandableHttpServiceV1', ()=> {
+    let service: AccountsCommandableHttpServiceV1;
 
     let rest: any;
 
@@ -29,13 +29,13 @@ suite('AccountsHttpServiceV1', ()=> {
         let persistence = new AccountsMemoryPersistence();
         let controller = new AccountsController();
 
-        service = new AccountsHttpServiceV1();
+        service = new AccountsCommandableHttpServiceV1();
         service.configure(httpConfig);
 
         let references: References = References.fromTuples(
             new Descriptor('service-accounts', 'persistence', 'memory', 'default', '1.0'), persistence,
             new Descriptor('service-accounts', 'controller', 'default', 'default', '1.0'), controller,
-            new Descriptor('service-accounts', 'service', 'http', 'default', '1.0'), service
+            new Descriptor('service-accounts', 'service', 'commandable-http', 'default', '1.0'), service
         );
         controller.setReferences(references);
         service.setReferences(references);

@@ -11,11 +11,11 @@
 			"program": "${workspaceRoot}/bin/main.js",
 			"sourceMaps": true,
 			"env": {
-				"MONGO_SERVICE_HOST": "mongo",
-				"MONGO_SERVICE_PORT": "27017",
-				"MONGO_DB": "app",
+	
 				"HTTP_ENABLED": "true",
-				"GRPC_ENABLED": "true"
+				"GRPC_ENABLED": "true",
+
+				// "HTTP_PORT": "8087"
 			}
 		},
 		{
