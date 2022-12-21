@@ -95,7 +95,7 @@ Example of microservice configuration
 
 - descriptor: "service-accounts:controller:default:default:1.0"
 
-- descriptor: "service-accounts:service:http:default:1.0"
+- descriptor: "service-accounts:service:commandable-http:default:1.0"
   connection:
     protocol: "http"
     host: "0.0.0.0"
